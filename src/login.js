@@ -2,24 +2,18 @@ import React, { Component } from "react";
 import "./App.css";
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+  state = {
       username: "",
       password: "",
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
+  handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
     const { username, password } = this.state;
     const userNameCheck = /^[A-Z0-9]+$/i.test(username);
